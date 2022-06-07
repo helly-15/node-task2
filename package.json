@@ -1,0 +1,21 @@
+{
+  "name": "task2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start -- --username=your_username"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helly-15/node-task2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helly-15/node-task2/issues"
+  },
+  "homepage": "https://github.com/helly-15/node-task2#readme",
+  "keywords": []
+}
