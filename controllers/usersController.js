@@ -10,7 +10,6 @@ export async function getUsers(req, res) {
     }
 }
 export async function getUser(req, res, id) {
-
     try {
         const user = await findById(id)
         if (!user) {

@@ -1,14 +1,26 @@
-import users from '../data/users.json' assert {type: 'json'};
 
-export function findAll() {
+let users = [];
+export async function findAll() {
+    users  =
+        await import('../data/usersCreated.json', {
+            assert: {
+                type: "json",
+            },
+        });
     return new Promise((resolve, reject) => {
-        resolve(users)
+        resolve(users.default)
     })
 }
 
-export function findById(id) {
+export async function findById(id) {
+    users =
+        await import('../data/usersCreated.json', {
+            assert: {
+                type: "json",
+            },
+        });
     return new Promise((resolve, reject) => {
-        const user = users.find((userItem) => userItem.id === id)
+        const user = users.default.find((userItem) => userItem.id === id)
         resolve(user)
     })
 }
