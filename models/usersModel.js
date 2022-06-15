@@ -5,3 +5,10 @@ export function findAll() {
         resolve(users)
     })
 }
+
+export function findById(id) {
+    return new Promise((resolve, reject) => {
+        const user = users.find((userItem) => userItem.id === id)
+        resolve(user)
+    })
+}
