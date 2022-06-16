@@ -1,7 +1,9 @@
 import http from 'http';
+import dotenv from 'dotenv';
+
 import {createUser, getUser, getUsers, updateUser, deleteUser} from "./controllers/usersController.js";
 import {createData} from "./data/createData.js";
-
+dotenv.config();
 const PORT = process.env.PORT || 5000;
 await createData(3);
 const server = http.createServer((req, res) => {
