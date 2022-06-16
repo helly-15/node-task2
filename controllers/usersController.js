@@ -42,6 +42,10 @@ export async function createUser(req, res) {
             age,
             hobbies
         }
+        if (!username || !age || !hobbies){
+            res.writeHead(400, {'Content-Type': 'application/json'})
+            res.end(JSON.stringify({message: 'User does not contain required fields'}))
+        }
         const userAdded = await create(newUser);
         res.writeHead(201, {'Content-Type': 'application/json'})
         res.end(JSON.stringify(userAdded))
