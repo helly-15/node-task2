@@ -40,3 +40,14 @@ export async function create(newUser) {
         resolve(newUser)
     })
 }
+
+export async function update(id, updatedUser) {
+    users = await readUsers();
+
+    return new Promise((resolve) => {
+        const index = users.findIndex(p=>p.id === id)
+        users[index] = {id, ...updatedUser}
+        writeDataToFile(path.resolve('data', 'usersCreated.json'), users);
+        resolve(users[index])
+    })
+}
