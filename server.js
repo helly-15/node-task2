@@ -1,5 +1,5 @@
 import http from 'http';
-import {createUser, getUser, getUsers, updateUser} from "./controllers/usersController.js";
+import {createUser, getUser, getUsers, updateUser, deleteUser} from "./controllers/usersController.js";
 import {createData} from "./data/createData.js";
 
 const PORT = process.env.PORT || 5000;
@@ -16,6 +16,9 @@ const server = http.createServer((req, res) => {
     } else if (req.url.match(/\/api\/users\//) && req.method === 'PUT') {
         const id = req.url.split('/')[3]
         updateUser(req, res, id)
+    } else if (req.url.match(/\/api\/users\//) && req.method === 'DELETE') {
+        const id = req.url.split('/')[3]
+        deleteUser(req, res, id)
     }
     else {
         res.writeHead(404, {'Content-Type': 'application/json'});

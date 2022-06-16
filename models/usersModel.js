@@ -45,9 +45,19 @@ export async function update(id, updatedUser) {
     users = await readUsers();
 
     return new Promise((resolve) => {
-        const index = users.findIndex(p=>p.id === id)
+        const index = users.findIndex(u=>u.id === id)
         users[index] = {id, ...updatedUser}
         writeDataToFile(path.resolve('data', 'usersCreated.json'), users);
         resolve(users[index])
+    })
+}
+
+export async function remove(id) {
+    users = await readUsers();
+
+    return new Promise((resolve) => {
+        users = users.filter(u=>u.id !== id)
+        writeDataToFile(path.resolve('data', 'usersCreated.json'), users);
+        resolve()
     })
 }
