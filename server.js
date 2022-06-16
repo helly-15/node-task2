@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
 
     if (req.url === '/api/users' && req.method === 'GET') {
         getUsers(req, res)
-    } else if (req.url.match(/\/api\/users\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/) && req.method === 'GET') {
+    } else if (req.url.match(/\/api\/users\//) && req.method === 'GET') {
         const id = req.url.split('/')[3]
         getUser(req, res, id)
     } else {

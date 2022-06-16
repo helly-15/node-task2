@@ -11,6 +11,10 @@ export async function getUsers(req, res) {
 }
 export async function getUser(req, res, id) {
     try {
+        if (!id.match(/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/)){
+            res.writeHead(400, {'Content-Type': 'application/json'})
+            res.end(JSON.stringify({message: 'Incorrect uuid'}))
+        }
         const user = await findById(id)
         if (!user) {
             res.writeHead(404, {'Content-Type': 'application/json'})
