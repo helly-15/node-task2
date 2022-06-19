@@ -2,11 +2,11 @@
   "name": "task2",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "dist/app.js",
   "type": "module",
   "scripts": {
-    "start:prod": "node server.js",
-    "start:dev": "nodemon server.js"
+    "start:prod": "tsc && node dist/server.js",
+    "start:dev": "tsc && nodemon dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,12 @@
   "homepage": "https://github.com/helly-15/node-task2#readme",
   "keywords": [],
   "devDependencies": {
+    "@types/node": "^18.0.0",
     "nodemon": "^2.0.16",
     "typescript": "^4.7.3"
   },
   "dependencies": {
+    "dotenv": "^14.3.2",
     "uuid": "^8.3.2"
   }
 }

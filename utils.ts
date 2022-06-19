@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-export function getPostData(req) {
+export function getPostData(req) : Promise<string> {
     return new Promise((resolve, reject) => {
         try {
             let body = ''
@@ -9,7 +9,7 @@ export function getPostData(req) {
             })
 
             req.on('end', () => {
-                resolve(body)
+                resolve(body);
             })
         } catch (error) {
             reject(error)
@@ -17,9 +17,5 @@ export function getPostData(req) {
     })
 }
 export function writeDataToFile(filename, content) {
-    fs.writeFileSync(filename, JSON.stringify(content), 'utf8', (err) => {
-        if(err) {
-            console.log(err)
-        }
-    })
+    fs.writeFileSync(filename, JSON.stringify(content), 'utf8')
 }

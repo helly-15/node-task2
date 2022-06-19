@@ -1,16 +1,22 @@
-import http from 'http';
-import dotenv from 'dotenv';
+import * as http from 'http';
+import * as dotenv from 'dotenv';
 
 import {createUser, getUser, getUsers, updateUser, deleteUser} from "./controllers/usersController.js";
 import {createData} from "./data/createData.js";
 dotenv.config();
 const PORT = process.env.PORT || 5000;
-await createData(3);
+
+const dataDummy = async () => {
+    await createData(3);
+};
+dataDummy()
+
 const server = http.createServer((req, res) => {
     try{
         if (req.url === '/api/users' && req.method === 'GET') {
             getUsers(req, res)
-        } else if (req.url.match(/\/api\/users\//) && req.method === 'GET') {
+        }
+        else if (req.url.match(/\/api\/users\//) && req.method === 'GET') {
             const id = req.url.split('/')[3]
             getUser(req, res, id)
         } else if (req.url === '/api/users' && req.method === 'POST') {

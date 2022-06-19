@@ -9,7 +9,9 @@ let filePath = path.join(__dirname,'../','data', 'usersCreated.json');
 
 let users = [];
 
-export async function readUsers() {
+export type IUser = { hobbies: string[]; id: string; age: number; username: string }
+
+export async function readUsers() : Promise<IUser[]> {
     let usersData = await readFile(filePath, "utf-8")
 
     return JSON.parse(usersData)
@@ -22,7 +24,7 @@ export async function findAll() {
     })
 }
 
-export async function findById(id) {
+export async function findById(id) : Promise<IUser> {
     users = await readUsers();
     return new Promise((resolve) => {
         const user = users.find((userItem) => userItem.id === id)
@@ -58,6 +60,6 @@ export async function remove(id) {
     return new Promise((resolve) => {
         users = users.filter(u=>u.id !== id)
         writeDataToFile(path.resolve('data', 'usersCreated.json'), users);
-        resolve()
+        resolve({})
     })
 }
