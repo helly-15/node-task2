@@ -10,7 +10,7 @@ to start project in production mode
 to send postman requests for all users
 
 ### http://localhost:5001/api/users/:userId
-to send postman requests for 1 user where userId is UUID ( UUID for a user you can find in folder data/usersCreated after running npm run start:prod once )
+to send postman requests for 1 user where userId is UUID ( UUID for a user you can find in postman response after sending http://localhost:5001/api/users request or in folder data/usersCreated after running npm run start:prod once )
 
 ***
 
