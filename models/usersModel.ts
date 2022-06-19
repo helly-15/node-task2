@@ -39,7 +39,7 @@ export async function create(newUser) {
     return new Promise((resolve) => {
         users.push(newUser);
 
-        writeDataToFile(path.resolve('../', 'data', 'usersCreated.json'), users);
+        writeDataToFile(filePath, users);
         resolve(newUser)
     })
 }
@@ -50,7 +50,7 @@ export async function update(id, updatedUser) {
     return new Promise((resolve) => {
         const index = users.findIndex(u => u.id === id)
         users[index] = {id, ...updatedUser}
-        writeDataToFile(path.resolve('../', 'data', 'usersCreated.json'), users);
+        writeDataToFile(filePath, users);
         resolve(users[index])
     })
 }
@@ -60,7 +60,7 @@ export async function remove(id) {
 
     return new Promise((resolve) => {
         users = users.filter(u => u.id !== id)
-        writeDataToFile(path.resolve('../', 'data', 'usersCreated.json'), users);
+        writeDataToFile(filePath, users);
         resolve({})
     })
 }

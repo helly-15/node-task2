@@ -6,6 +6,10 @@ to start project in development mode
 ### npm run start:prod
 to start project in production mode
 
+### npm run start:multi
+to start multiple instances of application using the Node.js Cluster API (to kill worker type in console kill 
+and worker PID, for ex kill 1520)
+
 ### http://localhost:5001/api/users
 to send postman requests for all users
 
