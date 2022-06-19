@@ -5,7 +5,7 @@ import {dirname} from "path";
 import * as path from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-let filePath = path.join(__dirname, 'usersCreated.json');
+let filePath = path.join(__dirname,'../../', 'data', 'usersCreated.json');
 let users = [];
 export async function createData(numberOfUsers){
     let hobbies = ['dancing', 'swimming', 'sailing', 'drawing'];
